@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2 style="color:red;">Error</h2>
+    <p>{{ message }}</p>
+    <p><a href="/register">🔙 Go Back to Register</a></p>
+  </div>
+</body>
+</html>
