@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Donor Results</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Nearby Donors</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background: crimson;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Search Results</h2>
-    {% if donors %}
-      {% for donor in donors %}
-        <div class="result-card">
-          <strong>{{ donor.name }}</strong> ({{ donor.age }} yrs)<br>
-          Blood Group: {{ donor.blood_group }}<br>
-          📍 {{ donor.location }}<br>
-          📞 {{ donor.contact }}
-        </div>
+  <h2>Nearby Donors (within 5 km)</h2>
+
+  {% if donors %}
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Blood Group</th>
+        <th>Contact</th>
+        <th>City</th>
+        <th>Distance (km)</th>
+      </tr>
+      {% for d in donors %}
+      <tr>
+        <td>{{ d.name }}</td>
+        <td>{{ d.blood_group }}</td>
+        <td>{{ d.contact }}</td>
+        <td>{{ d.city }}</td>
+        <td>{{ d.distance }}</td>
+      </tr>
       {% endfor %}
-    {% else %}
-      <p>No donors found.</p>
-    {% endif %}
-    <p style="text-align:center;margin-top:10px;">
-      <a href="/">🔙 Back to Search</a>
-    </p>
-  </div>
+    </table>
+  {% else %}
+    <p>No donors found nearby.</p>
+  {% endif %}
 </body>
 </html>
