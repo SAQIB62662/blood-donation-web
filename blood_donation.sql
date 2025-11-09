@@ -7,7 +7,32 @@ DELETE FROM donors
 CREATE TABLE donors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
+    age INT,DROP DATABASE IF EXISTS blood_donation;
+CREATE  DATABASE blood_donation;
+
+USE blood_donation;
+DELETE FROM donors
+
+CREATE TABLE donors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
     age INT,
+    blood_group VARCHAR(5),
+    location VARCHAR(100),
+    contact VARCHAR(20)
+);
+
+INSERT INTO donors (name, age, blood_group, location, contact)
+VALUES 
+('Ahmed Khan', 29, 'A+', 'Delhi', '9876543210'),
+('Sara Ali', 24, 'O-', 'Delhi', '9988776655'),
+
+
+SELECT * FROM donors;
+DELETE FROM donors WHERE id = 61;
+
+
+
     blood_group VARCHAR(5),
     location VARCHAR(100),
     contact VARCHAR(20)
